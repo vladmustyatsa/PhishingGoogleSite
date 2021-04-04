@@ -1,25 +1,29 @@
 #!/bin/bash
-
+echo "Deactivating virtual environment"
 deactivate 
 
+echo "Deleting virtual environment"
 rm venv -r
+echo "Creating virtual environment"
 python3 -m venv venv
 
+echo "Activating virtual environment"
 . venv/bin/activate 
 
 installed_packages=`pip3 freeze`
 expexted_packages=`cat requirements.txt` 
+echo "Installing packages..."
 pip3 install -r requirements.txt
 
 
 read -p "TELEGRAMBOT_TOKEN: " TELEBOT_TOKEN
 read -p "PROXI_HOST: " PROXI_HOST
-printf "#!/bin/bash\nPROXI_HOST=\"$PROXI_HOST\" TELEBOT_TOKEN=\"$TELEBOT_TOKEN\" python3 wsgi.py" > run-dev
+printf "#!/bin/bash\n. venv/bin/activate\nPROXI_HOST=\"$PROXI_HOST\" TELEBOT_TOKEN=\"$TELEBOT_TOKEN\" python3 wsgi.py" > run-dev
 
 
 PURPLE='\033[0;35m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-printf "\n\nRe-build was ${GREEN}succesful${NC}\n\n"
+printf "\n\nDevelopment re-build was ${GREEN}succesful${NC}\n\n"
 printf "${PURPLE}source run-dev${NC}\n\n"

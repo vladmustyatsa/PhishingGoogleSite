@@ -1,7 +1,5 @@
 <template>
-  <!--<img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-  <div></div>
+  <div id="app"></div>
 </template>
 
 <script>
@@ -10,7 +8,12 @@
 export default {
   name: 'App',
   components: {
-    
+
+  },
+  sockets: {
+    connect(){
+      console.log('connected')
+    }
   }
 }
 </script>
