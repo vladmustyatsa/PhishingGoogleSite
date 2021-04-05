@@ -12,11 +12,11 @@ bot.remove_webhook()
 sleep(1)
 bot.set_webhook(f'https://{PROXI_HOST}/telebot/{TOKEN}')
 
+from .handlers import *
+
 @app.route(f"/telebot/{app.config['TELEBOT_TOKEN']}", methods=['POST'])
 def handle_requests_to_bot():
     bot.process_new_updates([types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "ok", 200
 
-@bot.message_handler(commands=['start'])
-def start(message):
-    bot.send_message(message.chat.id, 'Start')
+
