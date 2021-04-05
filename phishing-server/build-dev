@@ -1,4 +1,9 @@
 #!/bin/bash
+
+PURPLE='\033[0;35m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
 echo "Creating virtual environment"
 if [ ! -d venv ]; then
     python3 -m venv venv
@@ -14,15 +19,12 @@ if [ "$installed_packages" != "$expexted_packages" ]; then
     pip3 install -r requirements.txt
 fi
 
-if [ ! -f run-dev ]; then
-    read -p "TELEGRAMBOT_TOKEN: " TELEBOT_TOKEN
+if [ ! -f config ]; then
     read -p "PROXI_HOST: " PROXI_HOST
-    printf "#!/bin/bash\n. venv/bin/activate\nPROXI_HOST=\"$PROXI_HOST\" TELEBOT_TOKEN=\"$TELEBOT_TOKEN\" python3 wsgi.py" > run-dev
+    read -p "TELEGRAMBOT_TOKEN: " TELEBOT_TOKEN 
+    printf "#!/bin/bash\nPROXI_HOST=$PROXI_HOST\nTELEBOT_TOKEN=$TELEBOT_TOKEN" > config
+    
 fi
-
-PURPLE='\033[0;35m'
-GREEN='\033[0;32m'
-NC='\033[0m'
 
 printf "\n\nDevelopment build is ${GREEN}ready to use${NC}\n\n"
 printf "${PURPLE}source run-dev${NC}\n\n"
