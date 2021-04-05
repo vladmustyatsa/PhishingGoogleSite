@@ -1,0 +1,4 @@
+#!/bin/bash
+. venv/bin/activate
+pip3 install $1
+pip3 freeze > requirements.txt
