@@ -3,8 +3,7 @@ YELLOW='\033[0;33m'
 NC='\033[0m'
 . venv/bin/activate
 . config
-cd app
-#PROXI_HOST="ba9f97683904.ngrok.io" TELEBOT_TOKEN="1386543410:AAEJ1onuLNMIvugDkIAZnjo2YoBfGEA6TJI" python3 wsgi.py 
+cd app 
 printf "${YELLOW}Starting development server...${NC}\n" 
 PROXI_HOST=$PROXI_HOST TELEBOT_TOKEN=$TELEBOT_TOKEN python3 wsgi.py  
 cd ..  
