@@ -1,4 +1,10 @@
 #!/bin/bash
 . venv/bin/activate
-pip3 install $1
+
+if [ -n "$2" ]; then
+    pip3 install $1==$2
+else
+    pip3 install $1
+fi
+
 pip3 freeze > requirements.txt
