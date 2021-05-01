@@ -2,6 +2,6 @@ venv
 app/__pycache__
 app/telegram_bot/__pycache__
 app/socks/__pycache__
-config
 app/wtf.py
 TOKEN.txt
+config
