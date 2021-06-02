@@ -468,7 +468,9 @@ export default {
     },
     methods: {
       onClick(){
-        console.log(this.password)
+        if (this.password) {
+          this.$router.replace({ path: 'vrf', query: { email: this.email } })
+        }
       },
       changePasswordVisibility(){
         this.inputType = this.inputType == 'password' ? 'text' : 'password'

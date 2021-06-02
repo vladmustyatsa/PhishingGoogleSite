@@ -18,6 +18,9 @@
     >
       <div class="aCsJod oJeWuf">
         <div class="aXBtI Wic03c">
+          
+          <span v-if="withGSpan" data-v-3b8fca39="" jsslot="" class="A37UZe qgcB3c iHd5yb">G-</span>
+          
           <div class="Xb9hP">
             <input
               
@@ -39,6 +42,7 @@
               v-model="enteredText"
               v-bind:value="enteredText"
               v-on:input="$emit('input', $event.target.value)"
+              :autocomplete="autoComplete"
             />
             <div jsname="YRMmle" class="AxOyFc snByac" aria-hidden="true">
               {{ placeHolder }}
@@ -69,7 +73,9 @@
 export default {
   props: {
     type: String,
-    placeholder: String
+    placeholder: String,
+    withGSpan: Boolean,
+    autoComplete: String
   },
   data() {
     return {
