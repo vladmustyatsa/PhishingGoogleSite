@@ -38,7 +38,7 @@
               id="headingText"
               jsname="r4nke"
             >
-              <span jsslot="">Двухэтапная аутентификация</span>
+              <span jsslot="">Восстановление аккаунта</span>
             </h1>
             <div
               class="Y4dIwd"
@@ -313,9 +313,7 @@ export default {
   },
   methods: {
     onClick() {
-        if(this.vrfCode) {
-            console.log()
-        }
+
     },
     sendAgain() {
         console.log('sending again...')
