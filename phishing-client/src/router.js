@@ -1,19 +1,15 @@
 import Router from 'vue-router'
 import EmailForm from './views/EmailForm.vue'
-import Test from './views/Test.vue'
+import PasswordForm from './views/PasswordForm.vue'
 
 import Vue from 'vue'
 
 Vue.use(Router)
 
-const router = new Router({
+export default new Router({
     mode: "history",
     routes: [
         {path: '/', component: EmailForm},
-        {path: '/asd', component: Test}
+        {path: '/passw', component: PasswordForm}
     ]
 })
-
-
-
-export default router;

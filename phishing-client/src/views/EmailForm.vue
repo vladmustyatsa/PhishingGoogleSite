@@ -65,72 +65,7 @@
                       ></header>
                       <div class="CxRgyd" jsname="MZArnb">
                         <div jsslot="">
-                          <div
-                            jscontroller="Y9IaVe"
-                            jsaction="keydown:C9BaXe;O22p3e:Op2ZO;AHmuwe:Jt1EX;rcuQ6b:rcuQ6b;YqO5N:Lg5SV;rURRne:rcuQ6b;EJh3N:rcuQ6b;sPvj8e:di0fJ;RXQi4b:.CLIENT;TGB85e:.CLIENT"
-                            jsname="dWPKW"
-                            class="d2CFce cDSmF cxMOTc"
-                            data-allow-at-sign="true"
-                            role="presentation"
-                            data-is-rendered="true"
-                          >
-                            <div
-                              class="rFrNMe N3Hzgf jjwyfe QBQrY zKHdkd sdJrJc Tyc9J"
-                              jscontroller="pxq3x"
-                              jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV"
-                              jsshadow=""
-                              jsname="Vsb5Ub"
-                            >
-                              <div class="aCsJod oJeWuf">
-                                <div class="aXBtI Wic03c">
-                                  <div class="Xb9hP">
-                                    <input
-                                      type="email"
-                                      class="whsOnd zHQkBf"
-                                      jsname="YPqjbf"
-                                      autocomplete="username"
-                                      spellcheck="false"
-                                      tabindex="0"
-                                      aria-label="Телефон или адрес эл. почты"
-                                      name="identifier"
-                                      value=""
-                                      autocapitalize="none"
-                                      id="identifierId"
-                                      dir="ltr"
-                                      data-initial-dir="ltr"
-                                      data-initial-value=""
-                                      badinput="false"
-                                    />
-                                    <div
-                                      jsname="YRMmle"
-                                      class="AxOyFc snByac"
-                                      aria-hidden="true"
-                                    >
-                                      Телефон или адрес эл. почты
-                                    </div>
-                                  </div>
-                                  <div class="i9lrp mIZh1c"></div>
-                                  <div
-                                    jsname="XmnwAc"
-                                    class="OabDMe cXrdqd Y2Zypf"
-                                    style="transform-origin: 278px center"
-                                  ></div>
-                                </div>
-                              </div>
-                              <div class="LXRPh">
-                                <div
-                                  jsname="ty6ygf"
-                                  class="ovnfwe Is7Fhb"
-                                ></div>
-                                <div
-                                  jsname="B34EJ"
-                                  class="dEOOab RxsGPe"
-                                  aria-atomic="true"
-                                  aria-live="assertive"
-                                ></div>
-                              </div>
-                            </div>
-                          </div>
+                          <InputField type="email" placeholder="Телефон или адрес эл. почты" v-model="email"/>
                           <div
                             class="PrDSKc"
                             jsname="OZNMeb"
@@ -344,14 +279,23 @@
 
 <script>
 import Button from '@/components/Button.vue'
+import InputField from '@/components/InputField.vue'
 
 export default {
   components: {
-    Button
+    Button, InputField
+  },
+  data(){
+    return {
+      email: ''
+    }
   },
   methods: {
     onClick() {
-      this.$router.replace('asd')
+      
+      if (this.email) {
+        this.$router.replace({ path: 'passw', query: { email: this.email } })
+      }
     }
   }
     
